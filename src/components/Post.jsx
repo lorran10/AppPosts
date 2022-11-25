@@ -5,6 +5,12 @@ import { Avatar } from './Avatar';
 import { Comment } from './Comment';
 
 import styles from './Post.module.css';
+const comments =[
+  1,
+  2,
+  
+
+];
 
 export function Post( {author, publishedAt, content}) {
   const publishedDateFormatted = format(publishedAt,"d 'de' LLLL 'ás' HH:mm'h'", {
@@ -39,14 +45,10 @@ const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
         if (line.type == 'paragraph'){
           return <p> {line.content}</p>;
         } else if (line.type == 'link'){
-          return <p><a href="3">{line.content}</a></p>;
-          
+          return <p><a href="3">{line.content}</a></p>; 
 
         }
-
-
       })}
-        
     </div>
 
     <form className={styles.commentForm}>
@@ -59,7 +61,9 @@ const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
 
       </form>
       <div className={styles.commentList}>
-        <Comment />
+       {comments.map(comment =>{
+        return <Comment />
+       })}
       
   
 
